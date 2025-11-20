@@ -4,10 +4,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Button({ children, ...props }: ButtonProps) {
   return (
-    <button
-      className="px-4 py-2  text-white rounded disabled:opacity-50"
-      {...props}
-    >
+    <button className="rounded disabled:opacity-50 cursor-pointer" {...props}>
       {children}
     </button>
   );

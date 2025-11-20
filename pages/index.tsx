@@ -66,7 +66,7 @@ export default function Home() {
     <main className="min-h-screen p-6 bg-gray-50">
       <div className="max-w-3xl mx-auto space-y-6">
         <div className="space-y-2 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-800">
+          <h1 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4">
             Tiny Link
           </h1>
           <Card>
@@ -82,18 +82,20 @@ export default function Home() {
 
               <Button
                 type="submit"
-                className="w-full bg-stone-600 hover:bg-stone-700"
+                className="w-44 px-3 py-2 rounded bg-stone-600 hover:bg-stone-700 cursor-pointer"
               >
                 Create Short Link
               </Button>
             </form>
           </Card>
 
-          <Search
-            value={search}
-            onChange={(val) => setSearch(val)}
-            placeholder="Search links..."
-          />
+          <div className="mt-12 mb-4">
+            <Search
+              value={search}
+              onChange={(val) => setSearch(val)}
+              placeholder="Search links..."
+            />
+          </div>
 
           <Card>
             <h2 className="text-xl font-semibold mb-4 text-stone-500">
@@ -102,14 +104,14 @@ export default function Home() {
 
             <Table headers={["Code", "URL", "Clicks", "Last Click", "Actions"]}>
               {filteredLinks.map((item) => (
-                <tr key={item.code} className="border-b">
+                <tr key={item.code} className="border">
                   <td className="px-4 py-2 whitespace-nowrap">{item.code}</td>
                   <td className="px-4 py-2 break-all">{item.url}</td>
                   <td className="px-4 py-2">{item.clicks}</td>
                   <td className="px-4 py-2">{item.lastClicked}</td>
                   <td className="px-4 py-2 space-x-2">
                     <Button
-                      className="text-red-600"
+                      className="text-red-600 cursor-pointer"
                       onClick={() => handleDelete(item.code)}
                     >
                       Delete

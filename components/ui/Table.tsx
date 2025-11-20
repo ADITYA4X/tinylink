@@ -9,7 +9,7 @@ export function Table({ headers, children }: TableProps) {
   return (
     <table className="w-full  table-auto border-collapse text-sm text-stone-700">
       <thead>
-        <tr className="border-b bg-gray-100">
+        <tr className="border bg-gray-100">
           {headers.map((header) => (
             <th
               key={header}

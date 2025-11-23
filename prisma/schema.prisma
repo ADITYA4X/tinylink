@@ -1,0 +1,19 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Link {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  url         String
+  clicks      Int      @default(0)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  lastClicked DateTime? @db.Timestamptz(6)
+}
